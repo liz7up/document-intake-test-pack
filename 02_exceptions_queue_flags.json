@@ -1,0 +1,197 @@
+{
+  "document_id": "doc_fff38f2ffa",
+  "filename": "02_police_report_ocr_exceptions.pdf",
+  "status_before_review": "needs_review",
+  "check_status_before_review": "failed",
+  "provider_meta": {
+    "provider": "opencode-go",
+    "model": "deepseek-v4.1-flash",
+    "latency_ms": 17759
+  },
+  "extracted_fields_before_review": {
+    "report_number": {
+      "value": "RPT-2026-1O48",
+      "state": "found",
+      "copied_text": "RPT-2026-1O48",
+      "page": 1,
+      "bbox": [
+        225.0,
+        134.68,
+        303.0,
+        147.17
+      ],
+      "nearby_label": "Report Number",
+      "confidence": 0.86,
+      "second_pass_value": "RPT-2026-1048",
+      "human_changed": false,
+      "old_value": null
+    },
+    "incident_date": {
+      "value": "2026-10-30",
+      "state": "found",
+      "copied_text": "2026-10-30",
+      "page": 1,
+      "bbox": [
+        225.0,
+        166.68,
+        285.0,
+        179.17
+      ],
+      "nearby_label": "Incident Date",
+      "confidence": 0.99,
+      "second_pass_value": "2026-10-30",
+      "human_changed": false,
+      "old_value": null
+    },
+    "precinct_code": {
+      "value": "PCT-04",
+      "state": "found",
+      "copied_text": "PCT-04",
+      "page": 1,
+      "bbox": [
+        225.0,
+        198.68,
+        261.0,
+        211.17
+      ],
+      "nearby_label": "Precinct Code",
+      "confidence": 0.99,
+      "second_pass_value": "PCT-04",
+      "human_changed": false,
+      "old_value": null
+    },
+    "officer_badge": {
+      "value": "BDG-7721",
+      "state": "found",
+      "copied_text": "BDG-7721",
+      "page": 1,
+      "bbox": [
+        225.0,
+        230.68,
+        273.0,
+        243.17
+      ],
+      "nearby_label": "Officer Badge",
+      "confidence": 0.99,
+      "second_pass_value": "BDG-7721",
+      "human_changed": false,
+      "old_value": null
+    },
+    "complainant_name": {
+      "value": "Elena Rostova",
+      "state": "found",
+      "copied_text": "Elena Rostova",
+      "page": 1,
+      "bbox": [
+        225.0,
+        262.68,
+        303.0,
+        275.17
+      ],
+      "nearby_label": "Complainant Name",
+      "confidence": 0.99,
+      "second_pass_value": "Elena Rostova",
+      "human_changed": false,
+      "old_value": null
+    },
+    "witness_phone": {
+      "value": null,
+      "state": "empty",
+      "copied_text": null,
+      "page": 1,
+      "bbox": [
+        50.0,
+        293.25,
+        120.03,
+        306.99
+      ],
+      "nearby_label": "Witness Phone",
+      "confidence": 0.95,
+      "second_pass_value": null,
+      "human_changed": false,
+      "old_value": null
+    },
+    "damage_estimate_usd": {
+      "value": null,
+      "state": "illegible",
+      "copied_text": "[ILLEGIBLE SMUDGE: $1,?50.??]",
+      "page": 1,
+      "bbox": [
+        225.0,
+        326.68,
+        399.0,
+        339.17
+      ],
+      "nearby_label": "Damage Estimate (USD)",
+      "confidence": 0.99,
+      "second_pass_value": null,
+      "human_changed": false,
+      "old_value": null
+    },
+    "incident_summary": {
+      "value": "Minor collision at depot gate B; bracket bent.",
+      "state": "found",
+      "copied_text": "Minor collision at depot gate B; bracket bent.",
+      "page": 1,
+      "bbox": [
+        225.0,
+        358.68,
+        501.0,
+        371.17
+      ],
+      "nearby_label": "Incident Summary",
+      "confidence": 0.99,
+      "second_pass_value": "Minor collision at depot gate B; bracket bent.",
+      "human_changed": false,
+      "old_value": null
+    }
+  },
+  "queue_flags": [
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_POSITIONAL_OCR_DAMAGE",
+      "severity": "review",
+      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
+      "evidence": {
+        "value": "RPT-2026-1O48",
+        "positional_mask": "AAA-DDDD-DDDD",
+        "issues": [
+          {
+            "position": 11,
+            "expected": "D (digit)",
+            "actual": "O",
+            "diagnosis": "OCR confusable 'O' for digit '0'"
+          }
+        ]
+      }
+    },
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
+      "severity": "review",
+      "message": "Check C (2nd-Pass Verifier): First pass read 'RPT-2026-1O48', second-pass verifier proposed 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
+      "evidence": {
+        "first_pass": "RPT-2026-1O48",
+        "second_pass": "RPT-2026-1048",
+        "auto_fixed": false
+      }
+    },
+    {
+      "field_name": "damage_estimate_usd",
+      "check_code": "STATE_ILLEGIBLE",
+      "severity": "review",
+      "message": "Field 'Damage Estimate (USD)' marked 'illegible' by extractor (copied raw marker: '[ILLEGIBLE SMUDGE: $1,?50.??]'). Sent to human review.",
+      "evidence": {
+        "state": "illegible",
+        "copied_text": "[ILLEGIBLE SMUDGE: $1,?50.??]",
+        "page": 1,
+        "bbox": [
+          225.0,
+          326.68,
+          399.0,
+          339.17
+        ]
+      }
+    }
+  ]
+}

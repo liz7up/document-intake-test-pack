@@ -1,0 +1,134 @@
+{
+  "document_id": "doc_c791683347",
+  "filename": "01_police_report_redacted_hardstop.pdf",
+  "status": "stopped",
+  "check_status": "failed",
+  "hard_stop_report": {
+    "triggered": true,
+    "reason": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+    "hits": [
+      {
+        "page": 1,
+        "text_bbox": [
+          225.0,
+          262.68,
+          477.0,
+          275.17
+        ],
+        "box_bbox": [
+          221.0,
+          259.0,
+          535.0,
+          278.0
+        ],
+        "overlap_ratio": 1.0,
+        "detection_method": "vector_rect",
+        "redacted_char_count": 42
+      }
+    ]
+  },
+  "queue_flags": [
+    {
+      "field_name": "_document",
+      "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
+      "severity": "hard_stop",
+      "message": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+      "evidence": {
+        "hit_count": 1,
+        "hits": [
+          {
+            "page": 1,
+            "text_bbox": [
+              225.0,
+              262.68,
+              477.0,
+              275.17
+            ],
+            "box_bbox": [
+              221.0,
+              259.0,
+              535.0,
+              278.0
+            ],
+            "overlap_ratio": 1.0,
+            "detection_method": "vector_rect",
+            "redacted_char_count": 42
+          }
+        ]
+      }
+    }
+  ],
+  "final_webhook_payload": {
+    "event": "document.final",
+    "document_id": "doc_c791683347",
+    "approval_id": null,
+    "final_state": "stopped",
+    "check_status": "failed",
+    "workspace_id": "ws_metro_safety",
+    "pipeline_id": "pipe_police_report",
+    "schema_version": 1,
+    "idempotency_key": "idem_doc_c791683347_stopped",
+    "data": {},
+    "fields": {},
+    "queue_flags": [
+      {
+        "field_name": "_document",
+        "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
+        "severity": "hard_stop",
+        "message": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+        "evidence": {
+          "hit_count": 1,
+          "hits": [
+            {
+              "page": 1,
+              "text_bbox": [
+                225.0,
+                262.68,
+                477.0,
+                275.17
+              ],
+              "box_bbox": [
+                221.0,
+                259.0,
+                535.0,
+                278.0
+              ],
+              "overlap_ratio": 1.0,
+              "detection_method": "vector_rect",
+              "redacted_char_count": 42
+            }
+          ]
+        }
+      }
+    ],
+    "source": {
+      "filename": "01_police_report_redacted_hardstop.pdf",
+      "received_at": "2026-11-08T09:28:44.097417+00:00",
+      "file_hash": "5e363abf2c945c2ce09d768588eda47a9d66d45851ea8aec40c59f18a1bf5647",
+      "hard_stop": {
+        "triggered": true,
+        "reason": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+        "hits": [
+          {
+            "page": 1,
+            "text_bbox": [
+              225.0,
+              262.68,
+              477.0,
+              275.17
+            ],
+            "box_bbox": [
+              221.0,
+              259.0,
+              535.0,
+              278.0
+            ],
+            "overlap_ratio": 1.0,
+            "detection_method": "vector_rect",
+            "redacted_char_count": 42
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "event": "document.final",
+  "document_id": "doc_fff38f2ffa",
+  "approval_id": "appr_82a2789dad",
+  "final_state": "approved",
+  "check_status": "passed",
+  "workspace_id": "ws_metro_safety",
+  "pipeline_id": "pipe_police_report",
+  "schema_version": 1,
+  "idempotency_key": "idem_doc_fff38f2ffa_approved",
+  "data": {
+    "report_number": "RPT-2026-1048",
+    "incident_date": "2026-10-30",
+    "precinct_code": "PCT-04",
+    "officer_badge": "BDG-7721",
+    "complainant_name": "Elena Rostova",
+    "witness_phone": null,
+    "damage_estimate_usd": "1350.00",
+    "incident_summary": "Minor collision at depot gate B; bracket bent."
+  },
+  "fields": {
+    "report_number": {
+      "value": "RPT-2026-1048",
+      "state": "corrected",
+      "human_changed": true,
+      "old_value": "RPT-2026-1O48"
+    },
+    "incident_date": {
+      "value": "2026-10-30",
+      "state": "found",
+      "human_changed": false,
+      "old_value": null
+    },
+    "precinct_code": {
+      "value": "PCT-04",
+      "state": "found",
+      "human_changed": false,
+      "old_value": null
+    },
+    "officer_badge": {
+      "value": "BDG-7721",
+      "state": "found",
+      "human_changed": false,
+      "old_value": null
+    },
+    "complainant_name": {
+      "value": "Elena Rostova",
+      "state": "found",
+      "human_changed": false,
+      "old_value": null
+    },
+    "witness_phone": {
+      "value": null,
+      "state": "empty",
+      "human_changed": false,
+      "old_value": null
+    },
+    "damage_estimate_usd": {
+      "value": "1350.00",
+      "state": "corrected",
+      "human_changed": true,
+      "old_value": null
+    },
+    "incident_summary": {
+      "value": "Minor collision at depot gate B; bracket bent.",
+      "state": "found",
+      "human_changed": false,
+      "old_value": null
+    }
+  },
+  "queue_flags": [
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_POSITIONAL_OCR_DAMAGE",
+      "severity": "review",
+      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
+      "evidence": {
+        "value": "RPT-2026-1O48",
+        "positional_mask": "AAA-DDDD-DDDD",
+        "issues": [
+          {
+            "position": 11,
+            "expected": "D (digit)",
+            "actual": "O",
+            "diagnosis": "OCR confusable 'O' for digit '0'"
+          }
+        ]
+      }
+    },
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
+      "severity": "review",
+      "message": "Check C (2nd-Pass Verifier): First pass read 'RPT-2026-1O48', second-pass verifier proposed 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
+      "evidence": {
+        "first_pass": "RPT-2026-1O48",
+        "second_pass": "RPT-2026-1048",
+        "auto_fixed": false
+      }
+    },
+    {
+      "field_name": "damage_estimate_usd",
+      "check_code": "STATE_ILLEGIBLE",
+      "severity": "review",
+      "message": "Field 'Damage Estimate (USD)' marked 'illegible' by extractor (copied raw marker: '[ILLEGIBLE SMUDGE: $1,?50.??]'). Sent to human review.",
+      "evidence": {
+        "state": "illegible",
+        "copied_text": "[ILLEGIBLE SMUDGE: $1,?50.??]",
+        "page": 1,
+        "bbox": [
+          225.0,
+          326.68,
+          399.0,
+          339.17
+        ]
+      }
+    }
+  ],
+  "source": {
+    "filename": "02_police_report_ocr_exceptions.pdf",
+    "received_at": "2026-11-08T09:28:44.128591+00:00",
+    "file_hash": "8063f44d3fa58971553d012cce3520a7f532d25ed4219b267dbe4b00c0ef71d9"
+  }
+}
