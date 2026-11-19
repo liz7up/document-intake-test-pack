@@ -1,0 +1,324 @@
+{
+  "pdf_file": "05_police_report_scan_ocr.pdf",
+  "pdf_structure": "200 DPI raster scan image + render_mode=3 invisible OCR layer (OCR layer has 'Elena Rostava' on Complainant Name and 'Platform 12' in Incident Summary)",
+  "case_a_1char_edit_distance_passes_and_keeps_extractor_value": {
+    "document_id": "doc_513e34627b",
+    "status": "delivered",
+    "check_status": "passed",
+    "complainant_name_field": {
+      "value": "Elena Rostova",
+      "state": "found",
+      "value_source": "extractor",
+      "copied_text": "Elena Rostova",
+      "page": 1,
+      "bbox": [
+        225.0,
+        230.68,
+        303.0,
+        243.17
+      ],
+      "nearby_label": "Complainant Name",
+      "confidence": 0.94,
+      "second_pass_value": null,
+      "second_pass_status": "not_applicable",
+      "human_changed": false,
+      "old_value": null
+    },
+    "complainant_name_checks": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": 1
+    },
+    "final_webhook_payload": {
+      "event": "document.final",
+      "document_id": "doc_513e34627b",
+      "approval_id": "appr_auto_5024fcbe",
+      "final_state": "auto_approved",
+      "check_status": "passed",
+      "workspace_id": "ws_metro_safety",
+      "pipeline_id": "pipe_police_report",
+      "schema_version": 2,
+      "idempotency_key": "idem_doc_513e34627b_auto_approved",
+      "data": {
+        "report_number": "RPT-2026-1043",
+        "incident_date": "2026-11-02",
+        "precinct_code": "PCT-12",
+        "officer_badge": "BDG-4410",
+        "complainant_name": "Elena Rostova",
+        "witness_phone": "415-555-0188",
+        "damage_estimate_usd": "960.00",
+        "incident_summary": "Side mirror scraped at Platform 12 bay."
+      },
+      "fields": {
+        "report_number": {
+          "value": "RPT-2026-1043",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "passed",
+            "check_c_positional": "passed",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "incident_date": {
+          "value": "2026-11-02",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "passed",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "precinct_code": {
+          "value": "PCT-12",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "passed",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "officer_badge": {
+          "value": "BDG-4410",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "passed",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "complainant_name": {
+          "value": "Elena Rostova",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "not_applicable",
+            "check_c_second_pass": "not_applicable",
+            "format_enum": "not_applicable",
+            "edit_distance_used": 1
+          }
+        },
+        "witness_phone": {
+          "value": "415-555-0188",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "passed",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "damage_estimate_usd": {
+          "value": "960.00",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "not_applicable",
+            "check_c_second_pass": "passed",
+            "format_enum": "passed",
+            "edit_distance_used": null
+          }
+        },
+        "incident_summary": {
+          "value": "Side mirror scraped at Platform 12 bay.",
+          "state": "found",
+          "value_source": "extractor",
+          "human_changed": false,
+          "old_value": null,
+          "checks": {
+            "state_gate": "passed",
+            "check_a_bbox_match": "passed",
+            "check_b_label": "passed",
+            "check_b_reference": "not_applicable",
+            "check_c_positional": "not_applicable",
+            "check_c_second_pass": "not_applicable",
+            "format_enum": "not_applicable",
+            "edit_distance_used": null
+          }
+        }
+      },
+      "field_checks": {
+        "report_number": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "passed",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "incident_date": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "precinct_code": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "officer_badge": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "complainant_name": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "not_applicable",
+          "format_enum": "not_applicable",
+          "edit_distance_used": 1
+        },
+        "witness_phone": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "damage_estimate_usd": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        },
+        "incident_summary": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "not_applicable",
+          "format_enum": "not_applicable",
+          "edit_distance_used": null
+        }
+      },
+      "queue_flags": [],
+      "source": {
+        "filename": "05_police_report_scan_ocr.pdf",
+        "received_at": "2026-11-19T03:33:35.816118+00:00",
+        "file_hash": "5c1dc11e02fffd1b5c6359603603cad662c67d120981fcf120c497022a28ac53",
+        "extractor_called": true
+      }
+    }
+  },
+  "case_b_2char_edit_distance_exceeds_limit_and_routes_to_review": {
+    "ocr_layer_complainant_name": "Elina Rostava",
+    "extractor_value": "Elena Rostova",
+    "status": "needs_review",
+    "check_status": "failed",
+    "complainant_name_checks": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "failed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": 2
+    },
+    "queue_flags": [
+      {
+        "field_name": "complainant_name",
+        "check_code": "CHECK_A_SCAN_MISMATCH",
+        "severity": "review",
+        "message": "Check A (Scan Name Edit Distance): Extracted 'Elena Rostova' vs cited-box OCR 'Elina Rostava' has edit distance 2 > limit 1. Routed to review without overwriting value.",
+        "evidence": {
+          "value": "Elena Rostova",
+          "bbox_ocr_text": "Elina Rostava",
+          "edit_distance": 2,
+          "max_edit_distance": 1,
+          "page": 1,
+          "bbox": [
+            225.0,
+            230.68,
+            303.0,
+            243.17
+          ],
+          "confidence_ignored": 0.94
+        }
+      }
+    ]
+  }
+}

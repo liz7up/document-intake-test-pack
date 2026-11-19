@@ -1,0 +1,162 @@
+{
+  "document_id": "doc_3730bb4085",
+  "filename": "04_police_report_partial_redaction.pdf",
+  "extractor_called": false,
+  "held_state_before_confirmation": {
+    "status": "stopped_held",
+    "extractor_called": false,
+    "webhook_emitted": false
+  },
+  "status": "stopped",
+  "check_status": "failed",
+  "hard_stop_report": {
+    "triggered": true,
+    "reason": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+    "extractor_called": false,
+    "hits": [
+      {
+        "hit_id": "hit_p1_1",
+        "page": 1,
+        "text_bbox": [
+          225.0,
+          262.68,
+          513.0,
+          275.17
+        ],
+        "box_bbox": [
+          445.5,
+          261.68,
+          514.5,
+          276.17
+        ],
+        "overlap_ratio": 0.234,
+        "detection_methods": [
+          "glyph_contrast"
+        ],
+        "min_glyph_contrast": 0.0,
+        "redacted_char_count": 11
+      }
+    ]
+  },
+  "queue_flags": [
+    {
+      "field_name": "_document",
+      "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
+      "severity": "hard_stop",
+      "message": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+      "evidence": {
+        "extractor_called": false,
+        "hit_count": 1,
+        "hits": [
+          {
+            "hit_id": "hit_p1_1",
+            "page": 1,
+            "text_bbox": [
+              225.0,
+              262.68,
+              513.0,
+              275.17
+            ],
+            "box_bbox": [
+              445.5,
+              261.68,
+              514.5,
+              276.17
+            ],
+            "overlap_ratio": 0.234,
+            "detection_methods": [
+              "glyph_contrast"
+            ],
+            "min_glyph_contrast": 0.0,
+            "redacted_char_count": 11
+          }
+        ]
+      }
+    }
+  ],
+  "final_webhook_payload": {
+    "event": "document.final",
+    "document_id": "doc_3730bb4085",
+    "approval_id": "appr_stop_c99d9779",
+    "final_state": "stopped",
+    "check_status": "failed",
+    "workspace_id": "ws_metro_safety",
+    "pipeline_id": "pipe_police_report",
+    "schema_version": 2,
+    "idempotency_key": "idem_doc_3730bb4085_stopped",
+    "data": {},
+    "fields": {},
+    "field_checks": {},
+    "queue_flags": [
+      {
+        "field_name": "_document",
+        "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
+        "severity": "hard_stop",
+        "message": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+        "evidence": {
+          "extractor_called": false,
+          "hit_count": 1,
+          "hits": [
+            {
+              "hit_id": "hit_p1_1",
+              "page": 1,
+              "text_bbox": [
+                225.0,
+                262.68,
+                513.0,
+                275.17
+              ],
+              "box_bbox": [
+                445.5,
+                261.68,
+                514.5,
+                276.17
+              ],
+              "overlap_ratio": 0.234,
+              "detection_methods": [
+                "glyph_contrast"
+              ],
+              "min_glyph_contrast": 0.0,
+              "redacted_char_count": 11
+            }
+          ]
+        }
+      }
+    ],
+    "source": {
+      "filename": "04_police_report_partial_redaction.pdf",
+      "received_at": "2026-11-19T03:33:35.611394+00:00",
+      "file_hash": "837d65cd306546f30d58646c400bac159da48587c0aed00220177035dbeac46f",
+      "extractor_called": false,
+      "hard_stop": {
+        "triggered": true,
+        "reason": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+        "extractor_called": false,
+        "hits": [
+          {
+            "hit_id": "hit_p1_1",
+            "page": 1,
+            "text_bbox": [
+              225.0,
+              262.68,
+              513.0,
+              275.17
+            ],
+            "box_bbox": [
+              445.5,
+              261.68,
+              514.5,
+              276.17
+            ],
+            "overlap_ratio": 0.234,
+            "detection_methods": [
+              "glyph_contrast"
+            ],
+            "min_glyph_contrast": 0.0,
+            "redacted_char_count": 11
+          }
+        ]
+      }
+    }
+  }
+}

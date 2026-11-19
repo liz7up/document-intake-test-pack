@@ -1,13 +1,13 @@
 {
   "event": "document.final",
-  "document_id": "doc_fff38f2ffa",
-  "approval_id": "appr_82a2789dad",
+  "document_id": "doc_6815999960",
+  "approval_id": "appr_24f542c83a",
   "final_state": "approved",
-  "check_status": "passed",
+  "check_status": "human_approved",
   "workspace_id": "ws_metro_safety",
   "pipeline_id": "pipe_police_report",
-  "schema_version": 1,
-  "idempotency_key": "idem_doc_fff38f2ffa_approved",
+  "schema_version": 2,
+  "idempotency_key": "idem_doc_6815999960_approved",
   "data": {
     "report_number": "RPT-2026-1048",
     "incident_date": "2026-10-30",
@@ -22,50 +22,220 @@
     "report_number": {
       "value": "RPT-2026-1048",
       "state": "corrected",
+      "value_source": "human",
       "human_changed": true,
-      "old_value": "RPT-2026-1O48"
+      "old_value": "RPT-2026-1O48",
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_run",
+        "check_c_positional": "failed",
+        "check_c_second_pass": "failed",
+        "format_enum": "not_run",
+        "edit_distance_used": null
+      }
     },
     "incident_date": {
       "value": "2026-10-30",
       "state": "found",
+      "value_source": "extractor",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      }
     },
     "precinct_code": {
       "value": "PCT-04",
       "state": "found",
+      "value_source": "extractor",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      }
     },
     "officer_badge": {
       "value": "BDG-7721",
       "state": "found",
+      "value_source": "extractor",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      }
     },
     "complainant_name": {
       "value": "Elena Rostova",
       "state": "found",
+      "value_source": "extractor",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "not_applicable",
+        "format_enum": "not_applicable",
+        "edit_distance_used": null
+      }
     },
     "witness_phone": {
       "value": null,
       "state": "empty",
+      "value_source": "none",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "not_run",
+        "check_b_label": "not_run",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_run",
+        "check_c_second_pass": "not_run",
+        "format_enum": "not_run",
+        "edit_distance_used": null
+      }
     },
     "damage_estimate_usd": {
       "value": "1350.00",
       "state": "corrected",
+      "value_source": "human",
       "human_changed": true,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "failed",
+        "check_a_bbox_match": "not_run",
+        "check_b_label": "not_run",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "not_run",
+        "format_enum": "not_run",
+        "edit_distance_used": null
+      }
     },
     "incident_summary": {
       "value": "Minor collision at depot gate B; bracket bent.",
       "state": "found",
+      "value_source": "extractor",
       "human_changed": false,
-      "old_value": null
+      "old_value": null,
+      "checks": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "not_applicable",
+        "format_enum": "not_applicable",
+        "edit_distance_used": null
+      }
+    }
+  },
+  "field_checks": {
+    "report_number": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_run",
+      "check_c_positional": "failed",
+      "check_c_second_pass": "failed",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "incident_date": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "precinct_code": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "officer_badge": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "complainant_name": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    },
+    "witness_phone": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "not_run",
+      "check_b_label": "not_run",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_run",
+      "check_c_second_pass": "not_run",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "damage_estimate_usd": {
+      "state_gate": "failed",
+      "check_a_bbox_match": "not_run",
+      "check_b_label": "not_run",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_run",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "incident_summary": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
     }
   },
   "queue_flags": [
@@ -73,10 +243,11 @@
       "field_name": "report_number",
       "check_code": "CHECK_C_POSITIONAL_OCR_DAMAGE",
       "severity": "review",
-      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
+      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed 1-based per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
       "evidence": {
         "value": "RPT-2026-1O48",
         "positional_mask": "AAA-DDDD-DDDD",
+        "position_indexing": "1-based",
         "issues": [
           {
             "position": 11,
@@ -85,17 +256,6 @@
             "diagnosis": "OCR confusable 'O' for digit '0'"
           }
         ]
-      }
-    },
-    {
-      "field_name": "report_number",
-      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
-      "severity": "review",
-      "message": "Check C (2nd-Pass Verifier): First pass read 'RPT-2026-1O48', second-pass verifier proposed 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
-      "evidence": {
-        "first_pass": "RPT-2026-1O48",
-        "second_pass": "RPT-2026-1048",
-        "auto_fixed": false
       }
     },
     {
@@ -114,11 +274,24 @@
           339.17
         ]
       }
+    },
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
+      "severity": "review",
+      "message": "Check C (Blind 2nd-Pass): First pass read 'RPT-2026-1O48', independent blind second pass read 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
+      "evidence": {
+        "first_pass": "RPT-2026-1O48",
+        "second_pass": "RPT-2026-1048",
+        "blind_call": true,
+        "auto_fixed": false
+      }
     }
   ],
   "source": {
     "filename": "02_police_report_ocr_exceptions.pdf",
-    "received_at": "2026-11-08T09:28:44.128591+00:00",
-    "file_hash": "8063f44d3fa58971553d012cce3520a7f532d25ed4219b267dbe4b00c0ef71d9"
+    "received_at": "2026-11-19T03:32:18.208955+00:00",
+    "file_hash": "9ef7ccfc6de0ac88a985dec677f592b687cdfadfeabc9fd72030b36127e99692",
+    "extractor_called": true
   }
 }

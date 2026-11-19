@@ -1,17 +1,24 @@
 {
-  "document_id": "doc_fff38f2ffa",
+  "document_id": "doc_6815999960",
   "filename": "02_police_report_ocr_exceptions.pdf",
+  "extractor_called": true,
   "status_before_review": "needs_review",
   "check_status_before_review": "failed",
   "provider_meta": {
     "provider": "opencode-go",
     "model": "deepseek-v4.1-flash",
-    "latency_ms": 17759
+    "latency_ms": 26477,
+    "extractor_called": true,
+    "second_pass_calls": 1,
+    "second_pass_latency_ms": 5477,
+    "not_verified_count": 0,
+    "patterned_evaluated_count": 4
   },
   "extracted_fields_before_review": {
     "report_number": {
       "value": "RPT-2026-1O48",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "RPT-2026-1O48",
       "page": 1,
       "bbox": [
@@ -21,14 +28,16 @@
         147.17
       ],
       "nearby_label": "Report Number",
-      "confidence": 0.86,
+      "confidence": 0.95,
       "second_pass_value": "RPT-2026-1048",
+      "second_pass_status": "completed",
       "human_changed": false,
       "old_value": null
     },
     "incident_date": {
       "value": "2026-10-30",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "2026-10-30",
       "page": 1,
       "bbox": [
@@ -40,12 +49,14 @@
       "nearby_label": "Incident Date",
       "confidence": 0.99,
       "second_pass_value": "2026-10-30",
+      "second_pass_status": "completed",
       "human_changed": false,
       "old_value": null
     },
     "precinct_code": {
       "value": "PCT-04",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "PCT-04",
       "page": 1,
       "bbox": [
@@ -57,12 +68,14 @@
       "nearby_label": "Precinct Code",
       "confidence": 0.99,
       "second_pass_value": "PCT-04",
+      "second_pass_status": "completed",
       "human_changed": false,
       "old_value": null
     },
     "officer_badge": {
       "value": "BDG-7721",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "BDG-7721",
       "page": 1,
       "bbox": [
@@ -74,12 +87,14 @@
       "nearby_label": "Officer Badge",
       "confidence": 0.99,
       "second_pass_value": "BDG-7721",
+      "second_pass_status": "completed",
       "human_changed": false,
       "old_value": null
     },
     "complainant_name": {
       "value": "Elena Rostova",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "Elena Rostova",
       "page": 1,
       "bbox": [
@@ -90,13 +105,15 @@
       ],
       "nearby_label": "Complainant Name",
       "confidence": 0.99,
-      "second_pass_value": "Elena Rostova",
+      "second_pass_value": null,
+      "second_pass_status": "not_applicable",
       "human_changed": false,
       "old_value": null
     },
     "witness_phone": {
       "value": null,
       "state": "empty",
+      "value_source": "none",
       "copied_text": null,
       "page": 1,
       "bbox": [
@@ -106,14 +123,16 @@
         306.99
       ],
       "nearby_label": "Witness Phone",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "second_pass_value": null,
+      "second_pass_status": "not_run",
       "human_changed": false,
       "old_value": null
     },
     "damage_estimate_usd": {
       "value": null,
       "state": "illegible",
+      "value_source": "none",
       "copied_text": "[ILLEGIBLE SMUDGE: $1,?50.??]",
       "page": 1,
       "bbox": [
@@ -123,14 +142,16 @@
         339.17
       ],
       "nearby_label": "Damage Estimate (USD)",
-      "confidence": 0.99,
+      "confidence": 1.0,
       "second_pass_value": null,
+      "second_pass_status": "not_run",
       "human_changed": false,
       "old_value": null
     },
     "incident_summary": {
       "value": "Minor collision at depot gate B; bracket bent.",
       "state": "found",
+      "value_source": "extractor",
       "copied_text": "Minor collision at depot gate B; bracket bent.",
       "page": 1,
       "bbox": [
@@ -141,9 +162,92 @@
       ],
       "nearby_label": "Incident Summary",
       "confidence": 0.99,
-      "second_pass_value": "Minor collision at depot gate B; bracket bent.",
+      "second_pass_value": null,
+      "second_pass_status": "not_applicable",
       "human_changed": false,
       "old_value": null
+    }
+  },
+  "field_checks": {
+    "report_number": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_run",
+      "check_c_positional": "failed",
+      "check_c_second_pass": "failed",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "incident_date": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "precinct_code": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "officer_badge": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "complainant_name": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    },
+    "witness_phone": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "not_run",
+      "check_b_label": "not_run",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_run",
+      "check_c_second_pass": "not_run",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "damage_estimate_usd": {
+      "state_gate": "failed",
+      "check_a_bbox_match": "not_run",
+      "check_b_label": "not_run",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_run",
+      "format_enum": "not_run",
+      "edit_distance_used": null
+    },
+    "incident_summary": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
     }
   },
   "queue_flags": [
@@ -151,10 +255,11 @@
       "field_name": "report_number",
       "check_code": "CHECK_C_POSITIONAL_OCR_DAMAGE",
       "severity": "review",
-      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
+      "message": "Check C (Positional Rule 'AAA-DDDD-DDDD'): Value 'RPT-2026-1O48' failed 1-based per-position check — pos 11 expected D (digit) got 'O' (OCR confusable 'O' for digit '0').",
       "evidence": {
         "value": "RPT-2026-1O48",
         "positional_mask": "AAA-DDDD-DDDD",
+        "position_indexing": "1-based",
         "issues": [
           {
             "position": 11,
@@ -163,17 +268,6 @@
             "diagnosis": "OCR confusable 'O' for digit '0'"
           }
         ]
-      }
-    },
-    {
-      "field_name": "report_number",
-      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
-      "severity": "review",
-      "message": "Check C (2nd-Pass Verifier): First pass read 'RPT-2026-1O48', second-pass verifier proposed 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
-      "evidence": {
-        "first_pass": "RPT-2026-1O48",
-        "second_pass": "RPT-2026-1048",
-        "auto_fixed": false
       }
     },
     {
@@ -191,6 +285,18 @@
           399.0,
           339.17
         ]
+      }
+    },
+    {
+      "field_name": "report_number",
+      "check_code": "CHECK_C_SECOND_PASS_DISAGREE",
+      "severity": "review",
+      "message": "Check C (Blind 2nd-Pass): First pass read 'RPT-2026-1O48', independent blind second pass read 'RPT-2026-1048'. Sent only this field to review without auto-fixing.",
+      "evidence": {
+        "first_pass": "RPT-2026-1O48",
+        "second_pass": "RPT-2026-1048",
+        "blind_call": true,
+        "auto_fixed": false
       }
     }
   ]

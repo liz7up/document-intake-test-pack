@@ -1,0 +1,362 @@
+{
+  "scenario": "03b_graduated_layout_auto_approved",
+  "layout_graduation_state_before_run": {
+    "workspace_id": "ws_metro_safety",
+    "sender_domain": "metrotransit.org",
+    "layout_key": "metrotransit.org::FORM_PR_104",
+    "seen_count": 10,
+    "approved_count": 10,
+    "corrected_doc_count": 1,
+    "graduated": 1,
+    "graduated_on_zero": 0,
+    "sample_reviewed_count": 0,
+    "sample_corrected_count": 0,
+    "reverted_count": 0,
+    "updated_at": "2026-11-19T03:33:12.730330+00:00"
+  },
+  "document_id": "doc_36399a5b8c",
+  "filename": "03_police_report_clean.pdf",
+  "status": "delivered",
+  "check_status": "passed",
+  "extractor_called": true,
+  "provider_meta": {
+    "provider": "opencode-go",
+    "model": "deepseek-v4.1-flash",
+    "latency_ms": 18019,
+    "extractor_called": true,
+    "second_pass_calls": 1,
+    "second_pass_latency_ms": 4644,
+    "not_verified_count": 0,
+    "patterned_evaluated_count": 6
+  },
+  "field_checks": {
+    "report_number": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "passed",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "incident_date": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "precinct_code": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "officer_badge": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "complainant_name": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    },
+    "witness_phone": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "damage_estimate_usd": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "incident_summary": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    }
+  },
+  "final_webhook_payload": {
+    "event": "document.final",
+    "document_id": "doc_36399a5b8c",
+    "approval_id": "appr_auto_77edd37f",
+    "final_state": "auto_approved",
+    "check_status": "passed",
+    "workspace_id": "ws_metro_safety",
+    "pipeline_id": "pipe_police_report",
+    "schema_version": 2,
+    "idempotency_key": "idem_doc_36399a5b8c_auto_approved",
+    "data": {
+      "report_number": "RPT-2026-1042",
+      "incident_date": "2026-10-31",
+      "precinct_code": "PCT-07",
+      "officer_badge": "BDG-4410",
+      "complainant_name": "Marcus Lin",
+      "witness_phone": "415-555-0144",
+      "damage_estimate_usd": "820.00",
+      "incident_summary": "Graffiti on north shelter panel; cleaned by crew."
+    },
+    "fields": {
+      "report_number": {
+        "value": "RPT-2026-1042",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "passed",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "incident_date": {
+        "value": "2026-10-31",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "precinct_code": {
+        "value": "PCT-07",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "officer_badge": {
+        "value": "BDG-4410",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "complainant_name": {
+        "value": "Marcus Lin",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "not_applicable",
+          "format_enum": "not_applicable",
+          "edit_distance_used": null
+        }
+      },
+      "witness_phone": {
+        "value": "415-555-0144",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "passed",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "damage_estimate_usd": {
+        "value": "820.00",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "passed",
+          "format_enum": "passed",
+          "edit_distance_used": null
+        }
+      },
+      "incident_summary": {
+        "value": "Graffiti on north shelter panel; cleaned by crew.",
+        "state": "found",
+        "value_source": "extractor",
+        "human_changed": false,
+        "old_value": null,
+        "checks": {
+          "state_gate": "passed",
+          "check_a_bbox_match": "passed",
+          "check_b_label": "passed",
+          "check_b_reference": "not_applicable",
+          "check_c_positional": "not_applicable",
+          "check_c_second_pass": "not_applicable",
+          "format_enum": "not_applicable",
+          "edit_distance_used": null
+        }
+      }
+    },
+    "field_checks": {
+      "report_number": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "passed",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "incident_date": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "precinct_code": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "officer_badge": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "complainant_name": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "not_applicable",
+        "format_enum": "not_applicable",
+        "edit_distance_used": null
+      },
+      "witness_phone": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "passed",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "damage_estimate_usd": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "passed",
+        "format_enum": "passed",
+        "edit_distance_used": null
+      },
+      "incident_summary": {
+        "state_gate": "passed",
+        "check_a_bbox_match": "passed",
+        "check_b_label": "passed",
+        "check_b_reference": "not_applicable",
+        "check_c_positional": "not_applicable",
+        "check_c_second_pass": "not_applicable",
+        "format_enum": "not_applicable",
+        "edit_distance_used": null
+      }
+    },
+    "queue_flags": [],
+    "source": {
+      "filename": "03_police_report_clean.pdf",
+      "received_at": "2026-11-19T03:33:12.817646+00:00",
+      "file_hash": "4589fab2c8958a640a2d41de35bea3b917699accd730b3bfc5550dd9238a0c0c",
+      "extractor_called": true
+    }
+  }
+}

@@ -1,13 +1,22 @@
 {
-  "document_id": "doc_c791683347",
+  "document_id": "doc_536534c858",
   "filename": "01_police_report_redacted_hardstop.pdf",
+  "extractor_called": false,
+  "held_state_before_confirmation": {
+    "status": "stopped_held",
+    "check_status": "failed",
+    "extractor_called": false,
+    "webhook_emitted": false
+  },
   "status": "stopped",
   "check_status": "failed",
   "hard_stop_report": {
     "triggered": true,
-    "reason": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+    "reason": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast', 'vector_rect']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+    "extractor_called": false,
     "hits": [
       {
+        "hit_id": "hit_p1_1",
         "page": 1,
         "text_bbox": [
           225.0,
@@ -22,7 +31,11 @@
           278.0
         ],
         "overlap_ratio": 1.0,
-        "detection_method": "vector_rect",
+        "detection_methods": [
+          "vector_rect",
+          "glyph_contrast"
+        ],
+        "min_glyph_contrast": 0.0,
         "redacted_char_count": 42
       }
     ]
@@ -32,11 +45,13 @@
       "field_name": "_document",
       "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
       "severity": "hard_stop",
-      "message": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+      "message": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast', 'vector_rect']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
       "evidence": {
+        "extractor_called": false,
         "hit_count": 1,
         "hits": [
           {
+            "hit_id": "hit_p1_1",
             "page": 1,
             "text_bbox": [
               225.0,
@@ -51,7 +66,11 @@
               278.0
             ],
             "overlap_ratio": 1.0,
-            "detection_method": "vector_rect",
+            "detection_methods": [
+              "vector_rect",
+              "glyph_contrast"
+            ],
+            "min_glyph_contrast": 0.0,
             "redacted_char_count": 42
           }
         ]
@@ -60,26 +79,29 @@
   ],
   "final_webhook_payload": {
     "event": "document.final",
-    "document_id": "doc_c791683347",
-    "approval_id": null,
+    "document_id": "doc_536534c858",
+    "approval_id": "appr_stop_5ed777dd",
     "final_state": "stopped",
     "check_status": "failed",
     "workspace_id": "ws_metro_safety",
     "pipeline_id": "pipe_police_report",
-    "schema_version": 1,
-    "idempotency_key": "idem_doc_c791683347_stopped",
+    "schema_version": 2,
+    "idempotency_key": "idem_doc_536534c858_stopped",
     "data": {},
     "fields": {},
+    "field_checks": {},
     "queue_flags": [
       {
         "field_name": "_document",
         "check_code": "HARD_STOP_TEXT_UNDER_BLACK_BOX",
         "severity": "hard_stop",
-        "message": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+        "message": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast', 'vector_rect']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
         "evidence": {
+          "extractor_called": false,
           "hit_count": 1,
           "hits": [
             {
+              "hit_id": "hit_p1_1",
               "page": 1,
               "text_bbox": [
                 225.0,
@@ -94,7 +116,11 @@
                 278.0
               ],
               "overlap_ratio": 1.0,
-              "detection_method": "vector_rect",
+              "detection_methods": [
+                "vector_rect",
+                "glyph_contrast"
+              ],
+              "min_glyph_contrast": 0.0,
               "redacted_char_count": 42
             }
           ]
@@ -103,13 +129,16 @@
     ],
     "source": {
       "filename": "01_police_report_redacted_hardstop.pdf",
-      "received_at": "2026-11-08T09:28:44.097417+00:00",
-      "file_hash": "5e363abf2c945c2ce09d768588eda47a9d66d45851ea8aec40c59f18a1bf5647",
+      "received_at": "2026-11-19T03:32:18.104738+00:00",
+      "file_hash": "e935ec464d401fd8d528c7c48356b2b25ef7977cb5f31602ff1081dfa8279c84",
+      "extractor_called": false,
       "hard_stop": {
         "triggered": true,
-        "reason": "Hard stop: detected 1 text span(s) underneath a filled redaction box with intact PDF text layer. Document halted and underlying text stripped before JSON emission.",
+        "reason": "Hard stop: detected 1 hidden/improper-redaction hit(s) via ['glyph_contrast', 'vector_rect']. Document held before extraction (extractor_called=false); no page text sent to any model and hidden text excluded from all outputs.",
+        "extractor_called": false,
         "hits": [
           {
+            "hit_id": "hit_p1_1",
             "page": 1,
             "text_bbox": [
               225.0,
@@ -124,7 +153,11 @@
               278.0
             ],
             "overlap_ratio": 1.0,
-            "detection_method": "vector_rect",
+            "detection_methods": [
+              "vector_rect",
+              "glyph_contrast"
+            ],
+            "min_glyph_contrast": 0.0,
             "redacted_char_count": 42
           }
         ]

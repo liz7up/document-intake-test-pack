@@ -1,0 +1,106 @@
+{
+  "scenario": "03a_cold_layout_warmup_enforced",
+  "document_id": "doc_77c3aa398b",
+  "filename": "03_police_report_clean.pdf",
+  "status": "needs_review",
+  "check_status": "failed",
+  "extractor_called": true,
+  "webhook_emitted": false,
+  "field_checks": {
+    "report_number": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "passed",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "incident_date": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "precinct_code": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "officer_badge": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "complainant_name": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    },
+    "witness_phone": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "passed",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "damage_estimate_usd": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "passed",
+      "format_enum": "passed",
+      "edit_distance_used": null
+    },
+    "incident_summary": {
+      "state_gate": "passed",
+      "check_a_bbox_match": "passed",
+      "check_b_label": "passed",
+      "check_b_reference": "not_applicable",
+      "check_c_positional": "not_applicable",
+      "check_c_second_pass": "not_applicable",
+      "format_enum": "not_applicable",
+      "edit_distance_used": null
+    }
+  },
+  "queue_flags": [
+    {
+      "field_name": "_layout",
+      "check_code": "LAYOUT_NEW_WARMUP",
+      "severity": "review",
+      "message": "Layout 'metrotransit.org::FORM_PR_104' ramp-up: 1/10 human-reviewed documents completed (seen #2). Routed to human review until layout graduates.",
+      "evidence": {
+        "layout_key": "metrotransit.org::FORM_PR_104",
+        "seen_count": 2,
+        "approved_count": 1,
+        "required_approved_n": 10,
+        "graduated": false
+      }
+    }
+  ]
+}

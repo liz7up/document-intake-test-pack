@@ -1,0 +1,27 @@
+{
+  "version": "v0.1",
+  "status": "unverified_reasoning_parameters",
+  "note": "Merged after Priyanshu's 2026-11-18 review notes (#6) and acceptance observations (#7). Every numeric threshold below is unverified reasoning to test, kept configurable in app/config.py ValidationPolicy rather than hard-coded.",
+  "policy": {
+    "check_a_bbox_padding_pt": 4.0,
+    "name_short_max_len": 12,
+    "name_edit_distance_short": 1,
+    "name_edit_distance_long": 2,
+    "scan_fuzzy_max_edit_distance": 1,
+    "check_b_label_strategy": "reference_or_label",
+    "redaction_darkness_threshold": 45,
+    "redaction_overlap_ratio": 0.3,
+    "glyph_render_dpi": 250,
+    "glyph_contrast_threshold": 18.0,
+    "thin_glyph_contrast_threshold": 8.0,
+    "enforce_new_layout_warmup": true,
+    "new_layout_review_count_n": 10,
+    "layout_correction_rate_limit": 0.2,
+    "weekly_auto_approved_sample_rate": 0.1,
+    "second_pass_verifier_mode": "pattern_fields_only",
+    "second_pass_timeout_ms": 25000,
+    "not_verified_alert_share": 0.1,
+    "validation_timeout_ms": 4000,
+    "consecutive_not_checked_bug_threshold": 2
+  }
+}

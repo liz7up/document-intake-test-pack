@@ -1,0 +1,49 @@
+### Validation rules v0.1 — merged after review (all numeric limits unverified)
+
+Status: v0.1 specification incorporating Priyanshu's review notes on the five v0 open questions (18 Nov) and his seven acceptance observations on the v0 pack (18 Nov), alongside Jason's timeout/alerting rules. Every numeric limit below is **unverified reasoning to test** (configurable in `ValidationPolicy`), not a production-proven constant.
+
+**Patterned vs. free-text fields.** A field is treated as *patterned* whenever the schema declares `pattern`, `positional_mask`, or `type in {number, date, enum}` (codes, dates, amounts, enums). All other string fields are *free-text* (with short person/entity names marked `allow_scan_edit_distance = true`, distinct from multi-word narrative fields).
+
+**1. Field states, provenance, and per-field check ledger** *(updated per #7 f & check-3 note)*.
+- Every field carries `state`: `found` (extracted), `empty` (field exists on form, blank), `redacted` (covered), `illegible` (unreadable/smudged), or `corrected` (changed by a human reviewer). The extractor may never guess to avoid `empty`.
+- Every field in the final output carries `value_source`: `"extractor"` (value came from extraction), `"human"` (value supplied or edited by reviewer), or `"none"` (`value` is `null`, e.g. `empty`).
+- Document-level `check_status` distinguishes `"passed"` (all applicable checks passed, no human intervention), `"failed"` (held in review or terminal stop), `"human_approved"` (checks flagged one or more items and a human approved the final record, with or without edits), and `"not_checked"` (deterministic validator timed out/errored; item passed through with owner-only alert per Jason's rule).
+- Every output and final webhook includes a per-field `checks` ledger (`passed | failed | not_run | not_applicable` per check) so passed checks are explicitly visible and silent check skips cannot hide.
+
+**2. Check A — bbox-scoped source verification & scan edit distance** *(resolved Q1 per #6 Q1 & #7 g)*.
+- Per field, the extractor returns `copied_text`, `page` (1-based), and `bbox`. Check A gathers only the visible PDF spans/glyphs intersecting the cited `bbox` (plus `check_a_bbox_padding_pt`, default `4.0pt` unverified) rather than searching the full page, preventing short values like `"12"` from matching unrelated text elsewhere on the page. Missing `bbox` on a `found` field routes to review.
+- **Patterned fields**: `value` and `copied_text` must match the normalised `bbox` text **exactly** (ignoring case, spaces, dashes, colons, line breaks). If the only difference is an OCR confusable pair from Check C, it still routes to review.
+- **Short name fields on scans** (`is_scanned_source = true` and `allow_scan_edit_distance = true`, never narrative summaries): allow a tight Levenshtein distance scaled by normalised length (`<= 12` chars → max `1`; `> 12` chars → max `2`, unverified). Within the limit, the field passes without review **keeping the extractor's value — page OCR text is never swapped in**. Beyond the limit, it routes to review (never silent reject).
+- *Caveat (per #6 Q1)*: on a searchable scan, if the extractor reads the exact same OCR text layer that Check A compares against, Check A only proves the value was not invented — not that the underlying OCR was right. Edit distance is exercised when a vision/model pass reads the raster image independently of the noisy OCR layer.
+
+**3. Check B — right format, wrong field & table headers** *(resolved Q2 per #6 Q2)*.
+- Enforce declared `pattern` / `positional_mask`, look up against `reference_list` when provided, and verify `nearby_label` against `expected_labels` / `forbidden_labels`.
+- **Table layouts (rule specified in v0.1; code deferred until first real table layout)**: map headers to columns once per table (not per cell) using horizontal x-overlap only when **exactly one** header overlaps a column; carry that map to continuation pages when column x-positions match within a small tolerance; if overlap is ambiguous or columns drift, fall back to `reference_list`, and route to review when no `reference_list` exists.
+
+**4. Check C — 1-based positional rules & blind second-pass extraction** *(resolved Q5 per #6 Q5 & #7 d, g)*.
+- **Positional rules**: character positions are strictly **1-based** across all evidence and docs (`position: null` for whole-string length mismatches). Confusable pairs (`O/0`, `I/1/l`, `S/5`, `B/8`, `Z/2`, lost hyphen) apply only to patterned fields.
+- **Blind second pass**: replaces the single-call/JSON-seeing verifier with an **independent second extraction call per page that never sees the first-pass JSON**, compared in code.
+  - *Scope*: triggered for a page when at least one `found` patterned field (or `critical = true` field when `second_pass_verifier_mode = "critical_only"`) passed the preliminary deterministic checks; one call covers that page's `found` patterned fields (free-text fields never receive `second_pass_value` and record `not_applicable`). If every patterned field on a page already failed preliminary checks, the call is skipped. Disagreement routes only that field to review without auto-fixing.
+  - *Hard timeout & alerting*: timed independently by `second_pass_timeout_ms` (default `25000ms` unverified, isolated from deterministic `validation_timeout_ms = 4000ms`). On timeout/error, affected fields are flagged `SECOND_PASS_NOT_VERIFIED` and **routed to review — never counted as a pass** and never converted into a `not_checked` auto-approval. When a workspace's share of `not_verified` patterned fields exceeds `not_verified_alert_share` (default `0.10` unverified), an owner alert fires so repeated verifier timeouts cannot hide behind green runs.
+
+**5. Confidence.** A failed check always sends the field to review, whatever the model confidence. Confidence only ranks already-passed fields for weekly sampling.
+
+**6. Hard stop — vector boxes, colour-independent glyph contrast, Redact annotations & CropBox** *(resolved Q3 per #6 Q3 & #7 a, b, c)*.
+- Runs **before any page text reaches an extractor or model**. Every stopped record carries `extractor_called: false` in the output JSON.
+- **Detection layers** (`detection_methods` recorded as a multi-valued list per hit):
+  1. *Vector filled box*: dark/opaque vector rectangle overlapping text (`redaction_overlap_ratio = 0.30` unverified).
+  2. *Colour-independent per-glyph rendered contrast*: render each page **with annotations** at `glyph_render_dpi` (`250` DPI unverified) and measure local foreground-vs-surroundings contrast under each character's glyph box (`rawdict` chars mapped by DPI & CropBox/rotation). Standard glyphs require contrast `>= glyph_contrast_threshold` (`18.0` luminance delta unverified); thin glyphs (`.`, `,`, `;`, `:`, `'`, `"`, `-`, `i`, `l`, `1`, `|`, `!`) use `thin_glyph_contrast_threshold` (`8.0` unverified) to reduce false stops. **Judged per glyph, grouped per word**: if any glyph in a word shows no contrast (e.g. a box covering only the last digits of an SSN), the word/span is treated as hidden and stops the document.
+  3. *`render_mode = 3` (invisible text)*: **does not trigger a stop by itself** (standard OCRmyPDF searchable scans), while its glyph boxes still undergo the rendered image contrast check above.
+  4. *Unapplied `/Redact` annotations & text outside `CropBox`*: any unapplied PDF Redact annotation or non-empty text outside the visible `CropBox` triggers a hard stop.
+- *Known limitations & expected false-stop surfaces*: misses text hidden under a busy cover (photo, pattern, overlapping text) because pixel contrast comes from the cover; may false-stop on rotated text, very faint/tiny print, legitimate white template text on dark headers, or drifted OCR text layers. Stop rate (`stopped_rate`) is tracked in workspace metrics.
+- **Held-stop lifecycle & single-`document.final` invariant** *(per #7 c)*:
+  - Triggering a hard stop places the document in `stopped_held` (held for a person, owner alerted, `extractor_called: false`, **no `document.final` webhook emitted**, zero hidden text written).
+  - *Confirmed improper redaction*: human confirms the stop → status becomes terminal `stopped` and emits `document.final` (`final_state = "stopped"`, `data = {}`, `fields = {}`, `extractor_called = false`) **once**.
+  - *False-stop release*: human clears the false-positive stop hit → document enters extraction → validation → mandatory human review, and upon approval emits `document.final` (`final_state = "approved"`) **once**.
+  - Every `document_id` therefore emits `document.final` **at most once** in its lifetime, keeping `document_id` receiver deduplication intact.
+
+**7. Memory, `N = 10` ramp-up, graduation & revert** *(resolved Q4 per #6 Q4 & #7 e)*.
+- Only human-approved corrections are saved in memory, keyed on `sender_domain + layout_key` (persisted across runs per workspace).
+- Warmup is enforced by default with `new_layout_review_count_n = 10` (unverified; 10 zero-correction docs still leave up to ~26% one-sided 95% correction risk, so weekly sampling is the real ongoing check).
+- **Graduation**: a layout graduates to `auto_approved` eligibility only after **`approved_count >= N` human-reviewed documents** (never mere `seen_count`) **and** its human-corrected document rate is `<= layout_correction_rate_limit` (`0.20` unverified, allowing noisy layouts to graduate fairly; layouts graduating with `0` corrections record `graduated_on_zero = true`).
+- **Revert**: in the weekly random sample of `auto_approved` documents (`weekly_auto_approved_sample_rate = 0.10`), if a layout's sample correction rate exceeds `layout_correction_rate_limit` — or on **any** correction for a layout with `graduated_on_zero = true` — the layout reverts to full review until it re-graduates over `N` reviewed documents.
